@@ -13,6 +13,7 @@ export default {
     return {
       users: [],
       userDetail: {},
+      showDetail: false,
     };
   },
   methods: {
@@ -21,6 +22,8 @@ export default {
     },
     handleView(user) {
       this.userDetail = user;
+      this.showDetail = true;
+      console.log(user);
     },
   },
 };
@@ -37,6 +40,6 @@ export default {
         @view="handleView(u)"
       />
     </div>
-    <UserDetail :data="userDetail" />
+    <UserDetail :data="userDetail" :visible="showDetail" @close="showDetail = false" />
   </div>
 </template>
